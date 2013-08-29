@@ -8,13 +8,10 @@ dos principais banco brasileiros. Este projeto é baseado no [PHPBol](https://gi
 
 ## Características
 
-* Suporte ao PHP 5.3 (namespaces) e 5.2
-* Completamente escrito seguindo padrões
 * Gera XHTML validado pela W3C
 * Impressão de carnês com quebra de página
 * Altamente extensível
-* Código desacoplado
-* Facilita integração com banco de dados
+* Facilita integração banco de dados
 
 ## Dependências
 As dependências já serão resolvidas com a utilização do composer
@@ -61,6 +58,6 @@ http://downloads.caixa.gov.br/_arquivos/cobranca_caixa_sigcb/manuais/CODIGO_BARR
 
 ## Utilização
 
-O controller 'IndexController' do módulo 'Application' (extends o [ZendSkeletonApplication](https://github.com/zendframework/ZendSkeletonApplication) )
-localizados em 'my/project/directory/module/Application/src/Application/Controller/IndexController.php'
+O controller `IndexController` do módulo `Application` (extends o [ZendSkeletonApplication](https://github.com/zendframework/ZendSkeletonApplication) )
+localizados em `my/project/directory/module/Application/src/Application/Controller/IndexController.php`
 pode ser utilizado como exemplo de implementação.
