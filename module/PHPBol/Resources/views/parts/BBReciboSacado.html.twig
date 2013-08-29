@@ -1,0 +1,89 @@
+        <table cellspacing="0" cellpadding="0" width="666" border="0">
+            <tr><td class="ct" width="666">
+                <div align="right">
+                    <b class="cp">Recibo do Sacado </b>
+                </div>
+            </td></tr>
+        </table>
+        <table class="header" border="0" cellspacing="0" cellpadding="0" style="width: 666px;border: 0; padding: 0;" >
+            <tbody>
+                <tr>
+                    <td style=" width: 150px;" ><img src="data:image/png;base64,{{ banco.logo }}" /></td>
+                    <td style=" width: 50px;">
+                        <div class="field_cod_banco">{{ banco.codigo }}-{{ banco.codigoDv }}</div>
+                    </td>
+                    <td class="linha_digitavel">{{ boletoData.linhaDigitavel }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="line" cellspacing="0" cellpadding="0">
+            <tbody>
+                <tr class="titulos">
+                    <td class="cedente">Cedente</TD>
+                    <td class="ag_cod_cedente">Ag&ecirc;ncia / C&oacute;digo do Cedente</td>
+                    <td class="especie">Esp&eacute;cie</TD>
+                    <td class="qtd">Quantidade</TD>
+                    <td class="nosso_numero">Nosso n&uacute;mero</td>
+                </tr>
+                <tr class="campos">
+                    <td class="cedente">{{ cedente.nome }}&nbsp;</td>
+                    <td class="ag_cod_cedente">{{ banco.agencia }}-{{ banco.agenciaDv }} / {{ banco.conta }}-{{ banco.contaDv }} &nbsp;</td>
+                    <td class="especie">{{ boletoData.especie }}&nbsp;</td>
+                    <TD class="qtd">{{ boletoData.quantidade }}&nbsp;</td>
+                    <TD class="nosso_numero">{{ boletoData.nossoNumero }}&nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="line" cellspacing="0" cellPadding="0">
+            <tbody>
+                <tr class="titulos">
+                    <td class="num_doc">N&uacute;mero do documento</td>
+                    <td class="contrato">Contrato</TD>
+                    <td class="cpf_cei_cnpj">CPF/CEI/CNPJ</TD>
+                    <td class="vencmento">Vencimento</TD>
+                    <td class="valor_doc">Valor documento</TD>
+                </tr>
+                <tr class="campos">
+                    <td class="num_doc">{{ boletoData.numeroDocumento }}</td>
+                    <td class="contrato"> &nbsp;</td>
+                    <td class="cpf_cei_cnpj">{{ cedente.cpfcnpj }}</td>
+                    <td class="vencimento">{{ boletoData.dataVencimento | date('d/m/Y') }}</td>
+                    <td class="valor_doc">{{ boletoData.valorBoleto | number_format(2, ',', '.') }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="line" cellspacing="0" cellPadding="0">
+            <tbody>
+                <tr class="titulos">
+                    <td class="desconto">(-) Desconto / Abatimento</td>
+                    <td class="outras_deducoes">(-) Outras dedu&ccedil;&otilde;es</td>
+                    <td class="mora_multa">(+) Mora / Multa</td>
+                    <td class="outros_acrescimos">(+) Outros acr&eacute;scimos</td>
+                    <td class="valor_cobrado">(=) Valor cobrado</td>
+                </tr>
+                <tr class="campos">
+                    <td class="desconto">&nbsp;</td>
+                    <td class="outras_deducoes">&nbsp;</td>
+                    <td class="mora_multa">&nbsp;</td>
+                    <td class="outros_acrescimos">&nbsp;</td>
+                    <td class="valor_cobrado">&nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="line" cellspacing="0" cellpadding="0">
+            <tbody>
+                <tr class="titulos">
+                    <td class="sacado">Sacado</td>
+                </tr>
+                <tr class="campos">
+                    <td class="sacado">{{ sacado.nome }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="footer">
+            <p>Autentica&ccedil;&atilde;o mec&acirc;nica</p>
+        </div>
+        
+        
+
