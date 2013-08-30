@@ -25,19 +25,12 @@ As dependências já serão resolvidas com a utilização do composer
 ## Instalação via Composer
 
   1. `cd my/project/directory`
-  2. crie um arquivo `composer.json` com o conteúdo seguinte:
+  2. clone o projeto e instale as dependencias
 
-     ```json
-     {
-         "require": {
-             "adaoex/zf2-phpbol": "dev-master"
-         }
-     }
-     ```
-  3. instalar PHP Composer via `curl -s http://getcomposer.org/installer | php` (no windows, download
-     http://getcomposer.org/installer e execute o PHP)
-  4. execute `php composer.phar install`
-  
+    git clone git://github.com/adaoex/zf2-phpbol.git
+    cd zf2-phpbol
+    php composer.phar install
+
 # Carteiras Implementadas
 
 ## Banco do Brasil
