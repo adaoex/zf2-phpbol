@@ -34,11 +34,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Skeleton Application') ?></a>
+                    <a class="navbar-brand" href="<?php echo $this->url('home') ?>"><?php echo $this->translate('ZF2-PHPBol') ?></a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
+                        <li class="active"><a href="<?php echo $this->url('home') ?>">Início</a></li>
+                        <li class="active"><a href="<?php echo $this->url('application') ?>/index/boleto">Boleto Exemplo</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
@@ -47,7 +48,7 @@
             <?php echo $this->content; ?>
             <hr>
             <footer>
-                <p>&copy; 2005 - <?php echo date('Y') ?> by Zend Technologies Ltd. <?php echo $this->translate('All rights reserved.') ?></p>
+                <p>&copy; <?php echo date('Y') ?> por <a href="http://blog.adao.eti.br" >Adão Gonçalves</a> - adao@adao.eti.br. </p>
             </footer>
         </div> <!-- /container -->
         <?php echo $this->inlineScript() ?>
