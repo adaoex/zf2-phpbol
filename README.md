@@ -26,10 +26,12 @@ As dependências já serão resolvidas com a utilização do composer
 
   1. `cd my/project/directory`
   2. clone o projeto e instale as dependencias
-
-    `git clone git://github.com/adaoex/zf2-phpbol.git
+  
+  ```
+    git clone git://github.com/adaoex/zf2-phpbol.git
     cd zf2-phpbol
-    php composer.phar install`
+    php composer.phar install
+  ```
 
 # Carteiras Implementadas
 
