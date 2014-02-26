@@ -1,6 +1,6 @@
 {
     "name": "adaoex/zf2-phpbol",
-    "description": "ZF2-PHPBol Geração de boletos com Zend Framework 2",
+    "description": "ZF2-PHPBol geração de boletos com Zend Framework 2",
     "license": "MIT",
     "keywords": [
         "phpbol",
