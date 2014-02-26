@@ -4,7 +4,8 @@ ZF2-PHPBol
 # Introdução
 
 Módulo Zend Framework 2 para geração de Boletos/Bloquetos de cobrança 
-dos principais banco brasileiros. Este projeto é baseado no [PHPBol](https://github.com/rafaelgou/PHPBol)
+dos principais banco brasileiros. 
+Este projeto é baseado no [PHPBol](https://github.com/rafaelgou/PHPBol)
 
 ## Características
 
@@ -12,6 +13,7 @@ dos principais banco brasileiros. Este projeto é baseado no [PHPBol](https://gi
 * Impressão de carnês com quebra de página
 * Altamente extensível
 * Facilita integração banco de dados
+* Gera código de barras em uma imagem apenas, utlizando `Zend\Barcode`
 
 ## Dependências
 As dependências já serão resolvidas com a utilização do composer
