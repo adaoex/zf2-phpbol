@@ -25,13 +25,23 @@ As dependências já serão resolvidas com a utilização do composer
 ## Instalação via Composer
 
   1. `cd my/project/directory`
-  2. clone o projeto e instale as dependencias
-  
-  ```
-    git clone git://github.com/adaoex/zf2-phpbol.git
-    cd zf2-phpbol
-    php composer.phar install
-  ```
+  2. criar um arquivo `composer.json` com o seguinte conteudo:
+
+     ```json
+     {
+         "require": {
+             "adaoex/zf2-phpbol": "dev-master"
+         }
+     }
+     ```
+  3. install PHP Composer via `curl -s http://getcomposer.org/installer | php` (on windows, download
+     http://getcomposer.org/installer and execute it with PHP)
+  4. executar `php composer.phar install`
+  5. abrir `my/project/directory/config/application.config.php` e adicionar os seguinte código em `modules`: 
+
+     ```php
+     'PHPBol',
+     ```
 
 # Carteiras Implementadas
 
