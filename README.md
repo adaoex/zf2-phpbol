@@ -42,7 +42,10 @@ As dependências já serão resolvidas com a utilização do composer
   5. abrir `my/project/directory/config/application.config.php` e adicionar os seguinte código em `modules`: 
 
      ```php
-     'PHPBol',
+	 'modules' => array(
+		...
+		'PHPBol',
+	)
      ```
 
 # Carteiras Implementadas
@@ -65,7 +68,7 @@ http://downloads.caixa.gov.br/_arquivos/cobranca_caixa_sigcb/manuais/CODIGO_BARR
 
 ## Utilização
 
-No arquivo `my/project/directory/config/module.config.php` configure:
+No arquivo `my/project/directory/config/application.config.php` configure:
 ```php
 'view_manager' => array(
    ...
