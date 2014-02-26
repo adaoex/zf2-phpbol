@@ -63,6 +63,131 @@ http://downloads.caixa.gov.br/_arquivos/cobranca_caixa_sigcb/manuais/CODIGO_BARR
 
 ## Utilização
 
-O controller `IndexController` do módulo `Application` (extends o [ZendSkeletonApplication](https://github.com/zendframework/ZendSkeletonApplication) )
-localizados em `my/project/directory/module/Application/src/Application/Controller/IndexController.php`
-pode ser utilizado como exemplo de implementação.
+No arquivo `my/project/directory/config/module.config.php` configure:
+```php
+'view_manager' => array(
+   ...
+   'template_map' => array(
+	   ...
+	   'boleto/layout' => __DIR__ . '/../../Application/view/layout/boletobb.phtml',
+   ),
+   'template_path_stack' => array(
+	   ...
+	   __DIR__ . '/../../Application/view',
+   ),
+),
+```
+
+
+```php
+<?php
+
+namespace Application\Controller;
+
+use Zend\Mvc\Controller\AbstractActionController;
+use DOMPDFModule\View\Model\PdfModel;
+use PHPBol\Boleto\Factory;
+
+class BoletoController extends AbstractActionController
+{
+    public function boletoPdfAction()
+    {
+		/* seta layout para o boleto */
+		$this->layout('layout/boletobb');
+		
+		$cedente = array(
+            'nome'     => 'Nome da Empresa',
+            'cpfcnpj'  => 'NUMERO CNPJ ou CPF',
+            'endereco' => '',
+            'bairro'   => '',
+            'cidade'   => '',
+            'uf'       => '',
+            'cep'      => '',
+        );
+
+        $sacado = array(
+            'logo'     => '',
+            'nome'     => '',
+            'cpfcnpj'  => '',
+            'endereco' => '',
+            'bairro'   => '',
+            'cidade'   => '',
+            'uf'       => '',
+            'cep'      => '',
+        );
+
+        $avalista = array(
+            'nome'     => '',
+            'cpfcnpj'  => '',
+        );
+        
+        $boletoData = array(
+            'nossoNumero'          => $nossoNumero,
+            'numeroDocumento'      => '',
+            'dataVencimento'       => new \DateTime(),
+            'dataEmissaoDocumento' => new \DateTime(),
+            'dataProcessamento'    => new \DateTime(),
+            'valorBoleto'          => 100.00,
+            'quantidade'           => 1,
+            'valorUnitario'        => null,
+            'aceite'               => '',
+            'especie'              => 'R$',
+            'especieDoc'           => 'DM',
+            'codigoBarra'          => '',
+            'demonstrativo'        => '',
+            'instrucoes'           => '<br />Senhor caixa,<br />'
+                                    . '- Após o vencimento, cobrar multa de 2%<br />'
+                                    . '- Após o vencimento, cobrar juros diário de 1%.<br />',
+        );
+
+        $img_logo = fread(fopen( realpath('./public/img/boleto/logobb.jpg'), "r"), filesize(realpath('./public/img/boleto/logobb.jpg')));
+        
+        $banco = array(
+            'logo' => base64_encode($img_logo),
+            'codigoCedente' => '0055',
+            'codigo' => '001',
+            'codigoDv' => '9',
+            'agencia' => '0055',
+            'agenciaDv' => '',
+            'conta' => '0055',
+            'contaDv' => 'X',
+            'carteira' => '18',
+            'variacao' =>  '027',
+            'convenio' => '000555',
+            'qtd_nosso_numero' => '17',
+        );
+
+        // Criando instância e definindo dados
+        // Utilizando o recurso de chain
+        $boleto = Factory::create('BB')
+                ->setBanco($banco)
+                ->setCedente($cedente)
+                ->setSacado($sacado)
+                ->setAvalista($avalista)
+                ->setBoletoData($boletoData)
+                ->setBarcodeImgBase64();
+		
+        $pdf = new PdfModel();
+		/* Triggers PDF download, automatically appends ".pdf" */
+        $pdf->setOption('filename', 'monthly-report');
+        $pdf->setOption('paperSize', 'a4'); // Defaults to "8x11"
+        $pdf->setOption('paperOrientation', 'landscape'); // Defaults to "portrait"
+        
+        // To set view variables
+        $pdf->setVariables(array(
+			'html' => $boleto->render('bb_boleto')'
+        ));
+        
+        return $pdf;
+    }
+}
+```
+
+No arquivo da view `my/project/directory/Application/view/boleto/boleto-pdf.phtml` codifique:
+```php
+<?php 
+echo $this->html;
+
+```
+
+Dúvidas? Comente!
