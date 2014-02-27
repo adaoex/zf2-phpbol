@@ -1,29 +1,30 @@
 {
-    "name": "adaoex/zf2-phpbol",
-    "description": "ZF2-PHPBol geração de boletos com Zend Framework 2",
-    "license": "MIT",
-    "keywords": [
-        "phpbol",
-        "zf2"
-    ],
+	"name": "adaoex/zf2-phpbol",
+	"description": "ZF2-PHPBol geração de boletos com Zend Framework 2",
+	"license": "MIT",
+	"keywords": [
+	"phpbol",
+	"zf2"
+	],
+	"minimum-stability": "dev",
 	"authors" : [
 		{
 			"name" : "Adão Gonçalves",
 			"email" : "adao.dba@gmail.com"
 		}
 	],
-    "require": {
-        "php": ">=5.3.3",
-        "zendframework/zendframework": "2.*",
-        "dino/dompdf-module": "*",
-        "twig/twig": "1.*",
-        "twig/extensions": "dev-master",
-        "data-uri/data-uri": "dev-master",
-        "data-uri/twig-extension": "dev-master"
-    },
-    "autoload": {
-        "psr-0": {
-            "PHPBol": "src/"
-        }
-    }
+	"require": {
+		"php": ">=5.3.3",
+		"zendframework/zendframework": "2.*",
+		"dino/dompdf-module": "*",
+		"twig/twig": "1.*",
+		"twig/extensions": "dev-master",
+		"data-uri/data-uri": "dev-master",
+		"data-uri/twig-extension": "dev-master"
+	},
+	"autoload": {
+		"psr-0": {
+		    "PHPBol": "src/"
+		}
+	}
 }
