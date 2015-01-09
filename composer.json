@@ -1,6 +1,6 @@
 {
 	"name": "adaoex/zf2-phpbol",
-	"description": "ZF2-PHPBol geração de boletos com Zend Framework 2",
+	"description": "ZF2-PHPBol Geração de boletos, para vários bancos, com Zend Framework 2, por @adaoex",
 	"license": "MIT",
 	"keywords": [
 	"phpbol",
@@ -10,7 +10,8 @@
 	"authors" : [
 		{
 			"name" : "Adão Gonçalves",
-			"email" : "adao.dba@gmail.com"
+			"email" : "adao.dba@gmail.com",
+			"homepage": "http://www.adao.eti.br"
 		}
 	],
 	"require": {
